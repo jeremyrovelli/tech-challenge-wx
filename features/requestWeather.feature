@@ -1,4 +1,4 @@
-Feature: Request weather
+Feature: Request weather forecast
   In order to decide if I go on holiday 
   As a holiday maker
   I want to know the weather temperature for a specific city and day
@@ -10,4 +10,3 @@ Feature: Request weather
     When I look up the weather forecast
     Then I receive the weather forecast
     And the temperature is warmer than 10 degrees
-    
