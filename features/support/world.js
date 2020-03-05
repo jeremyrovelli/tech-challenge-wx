@@ -3,7 +3,7 @@ const { setWorldConstructor } = require("cucumber");
 class CustomWorld {
   constructor() {
     this.city = "";
-    this.desiredDay = "";
+    this.desiredDate = "";
     this.weatherReponse;
   }
 
