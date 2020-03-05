@@ -127,7 +127,7 @@ exports.config = {
  //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
-        require: ['./features/support/steps.js'],        // <string[]> (file/dir) require files before executing features
+        require: ['./features/support/stepsUI.js', './features/support/stepsAPI.js'],        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
         requireModule: [],  // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false,      // <boolean> invoke formatters without executing steps

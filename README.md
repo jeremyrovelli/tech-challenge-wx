@@ -31,6 +31,10 @@ Node,js/npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
 ## Run tests
 
-### Script to run webdriver.io test
+### Script to run ui test against the shopping web app
 
-`$ ./node_modules/.bin/wdio run wdio.conf.js`
+`$ npm run uitest`
+
+### Script to run api test against the weather web app
+
+`$ npm run apitest`
