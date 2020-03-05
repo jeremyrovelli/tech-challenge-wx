@@ -32,7 +32,7 @@ Then("the temperature is warmer than 10 degrees", function(){
 });
 
 async function getWeather(cityToLookFor){
-    const weatherReponse = await request("api.openweathermap.org/data/2.5/").get("forecast?q="+cityToLookFor+"&appid="+appid+"&c")
+    const weatherReponse = await request("api.openweathermap.org/data/2.5/").get("forecast?q="+cityToLookFor+"&appid="+appid)
     return weatherReponse;
 } 
 
