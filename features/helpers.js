@@ -1,3 +1,6 @@
+const request = require('supertest');
+const appid = "21130a6913e49062f45a8d10cc2c98cb"
+
 function determineNextMondaydate(){
     var d = new Date();
     d.setDate(d.getDate() + (1 + 7 - d.getDay()) % 7);
@@ -33,6 +36,11 @@ function getTemperaturesForDesiredDate(weatherReponse, desiredDate){
     return temperatures
 }
 
+async function getWeather(cityToLookFor){
+    const weatherReponse = await request("api.openweathermap.org/data/2.5/").get("forecast?q="+cityToLookFor+"&appid="+appid)
+    return weatherReponse;
+} 
+
 function checkTemperaturesGreaterThan10(temperatures){
     let isTemperatureGreaterThan10 = true
          for (i=0;i<temperatures.length;i++){
@@ -43,4 +51,4 @@ function checkTemperaturesGreaterThan10(temperatures){
     return isTemperatureGreaterThan10
 }
 
-module.exports = { determineNextMondaydate, getTemperaturesForDesiredDate, checkTemperaturesGreaterThan10};
+module.exports = { determineNextMondaydate, getTemperaturesForDesiredDate, checkTemperaturesGreaterThan10, getWeather};

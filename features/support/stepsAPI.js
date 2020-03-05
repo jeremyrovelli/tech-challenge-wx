@@ -1,8 +1,6 @@
 const { Given, When, Then } = require("cucumber");
-const request = require('supertest');
-const {determineNextMondaydate, getTemperaturesForDesiredDate, checkTemperaturesGreaterThan10} = require("../helpers.js");
+const {determineNextMondaydate, getTemperaturesForDesiredDate, checkTemperaturesGreaterThan10, getWeather} = require("../helpers.js");
 const {assert} = require("chai");
-const appid = "21130a6913e49062f45a8d10cc2c98cb"
 
 Given("I like to holiday in Sydney", function(){
     this.setCityTo("Sydney");
@@ -31,9 +29,5 @@ Then("the temperature is warmer than 10 degrees", function(){
     assert.isTrue(isTemperatureGreaterThan10)
 });
 
-async function getWeather(cityToLookFor){
-    const weatherReponse = await request("api.openweathermap.org/data/2.5/").get("forecast?q="+cityToLookFor+"&appid="+appid)
-    return weatherReponse;
-} 
 
 
