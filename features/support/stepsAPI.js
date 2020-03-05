@@ -18,7 +18,7 @@ When("I look up the weather forecast", async function(){
 Then("I receive the weather forecast", function(){
     assert.equal(this.weatherReponse.status,200)
     assert.equal(this.weatherReponse.body.city.name,this.city)
-    assert.equal(this.weatherReponse.headers["content-type"], "application/json; charset=utf-8")
+    assert.equal(this.weatherReponse.headers["content-type"].substring(0,16), "application/json")
     //improvement: assert that the list is not empty (exemple: at least one temperature)
 });
 
