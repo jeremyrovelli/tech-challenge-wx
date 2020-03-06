@@ -1,5 +1,5 @@
 const { Given, When, Then } = require("cucumber");
-chai = require("chai");
+const {assert} = require("chai");
 
 //we assume we always log in with jeremyrovelli@gmail.com/WooliesX. Improvement: Those credentials could be parameters for this step, and stored in a config file
 Given("I am logged in", function(){
@@ -13,7 +13,7 @@ Given("I am logged in", function(){
     const loginButton = $('#SubmitLogin');
     loginButton.click()
     const title = browser.getTitle()
-    chai.assert.strictEqual(title, 'My account - My Store')
+    assert.strictEqual(title, 'My account - My Store')
 });
 
 //improvement: implement code to add any available item, not such a specific one as "Women > Faded Short Sleeve T-shirts"
@@ -63,5 +63,5 @@ When("I pay by bank wire", function(){
   
 Then("I should see the order confirmation page", function() {
     const title = browser.getTitle()
-    chai.assert.strictEqual(title, 'Order confirmation - My Store')
+    assert.strictEqual(title, 'Order confirmation - My Store')
 });
