@@ -1,10 +1,15 @@
 const request = require('supertest');
 const appid = "21130a6913e49062f45a8d10cc2c98cb"
 
-function determineNextMondaydate(){
-    var d = new Date();
-    d.setDate(d.getDate() + (1 + 7 - d.getDay()) % 7);
-    return formatDate(d);
+/**
+ * params
+ * date [JS Date()]
+ * day_in_week [int] 1 (Mon) - 7 (Sun)
+ */
+function nextWeekdayDate(date, day_in_week) {
+    var ret = new Date(date||new Date());
+    ret.setDate(ret.getDate() + (day_in_week - 1 - ret.getDay() + 7) % 7 + 1);
+    return formatDate(ret);
 }
 
 function formatDate(date) {
@@ -33,7 +38,11 @@ function getTemperaturesForDesiredDate(weatherReponse, desiredDate){
             temperatures.push(temperatureCelcius)
         }
     }
-    return temperatures
+    if (temperatures.length>0){
+     return temperatures
+    } else {
+        throw("There are no temperatures available for: "+desiredDate+". Possible reason: a free openweathermap account lets you access the next 5 days only")
+    }
 }
 
 async function getWeather(cityToLookFor){
@@ -51,4 +60,4 @@ function checkTemperaturesGreaterThan10(temperatures){
     return isTemperatureGreaterThan10
 }
 
-module.exports = { determineNextMondaydate, getTemperaturesForDesiredDate, checkTemperaturesGreaterThan10, getWeather};
+module.exports = { nextWeekdayDate, getTemperaturesForDesiredDate, checkTemperaturesGreaterThan10, getWeather};
