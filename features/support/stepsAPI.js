@@ -6,7 +6,7 @@ Given("I like to holiday in Sydney", function(){
     this.setCityTo("Sydney");
 });
 
-//IMPORTANT: I use "Wednesdays" (int = 3) as my free account on openweathermap gives access to 5 days max (Today is Friday)
+//IMPORTANT: I use "Wednesdays" (int = 3) as my free account on openweathermap gives access to 5 days max (current day is Friday)
 //IF NECESSARY, PLEASE UPDATE THIS FUNCTION TO CHOOSE A DAY WITHIN THE NEXT 5 DAYS
 Given("I only like to holiday on Wednesdays", function(){
     //how to use param: 1 (Mon) - 7 (Sun)

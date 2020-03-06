@@ -3,7 +3,8 @@ Feature: Request weather forecast
   As a holiday maker
   I want to know the weather temperature for a specific city and day
   
-  # IMPORTANT The scenario had been modified to use Wednesdays instead of Thursdays, as my free account on openweathermap gives access to 5 days max (it's is Friday when I write this)
+  # IMPORTANT: I use "Wednesdays" (int = 3) as my free account on openweathermap gives access to 5 days max (current day is Friday)
+  # IF NECESSARY, PLEASE UPDATE THE STEP (and associated function in stepsAPI.js) TO CHOOSE A DAY WITHIN THE NEXT 5 DAYS
   Scenario: A happy holidaymaker
     Given I like to holiday in Sydney
     And I only like to holiday on Wednesdays
